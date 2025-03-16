@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 
 class Program
@@ -13,24 +14,33 @@ class Program
         Console.WriteLine("Enter directory path to search in:");
         string directoryPath = Console.ReadLine();
 
+        Console.WriteLine("Do you want a specific file moved? Y/N");
+        string moveFileSpesific = Console.ReadLine();
 
-        List<string> sortedFiles = new List<string>();
-
-        if (Directory.Exists(directoryPath)) // Locates all files within locashon (aka ingnors folders)
+        if(FileSpesificanonCheck(moveFileSpesific))
         {
-            string[] fileNames = Directory.GetFiles(directoryPath, "*", SearchOption.AllDirectories);
-            FindFileNameMatches(fileNames, fileToFind, sortedFiles, directoryPath);
-
-            // Print all matching files
-            if (sortedFiles.Count > 0)
-            {
-                Console.WriteLine("\nMatching files found:");
-                foreach (string file in sortedFiles)
-                    Console.WriteLine(file);
-            }
+            Debug.WriteLine("What File do you want moved? (Write the executable ext: .txt .exe)");
         }
         else
-            Console.WriteLine($"Directory not found: {directoryPath}");
+        {
+            List<string> sortedFiles = new List<string>();
+
+            if (Directory.Exists(directoryPath)) // Locates all files within locashon (aka ingnors folders)
+            {
+                string[] fileNames = Directory.GetFiles(directoryPath, "*", SearchOption.AllDirectories);
+                FindFileNameMatches(fileNames, fileToFind, sortedFiles, directoryPath);
+
+                // Print all matching files
+                if (sortedFiles.Count > 0)
+                {
+                    Console.WriteLine("\nMatching files found:");
+                    foreach (string file in sortedFiles)
+                        Console.WriteLine(file);
+                }
+            }
+            else
+                Console.WriteLine($"Directory not found: {directoryPath}");
+        }
     }
 
     static void FindFileNameMatches(string[] fileNames, string fileToFind, List<string> sortedFiles,string directoryPath)
@@ -62,6 +72,18 @@ class Program
         if (!Directory.Exists(matchingFilesDir))
             Directory.CreateDirectory(matchingFilesDir);
 
+        foreach (string file in Files) // moves files to the new folder
+        {
+            FileInfo fileInfo = new FileInfo(file);
+            fileInfo.MoveTo(Path.Combine(matchingFilesDir, fileInfo.Name));
+            Debug.WriteLine($"Moved file: {fileInfo.Name}");
+        }   
 
     }
+
+    static bool FileSpesificanonCheck(string input) // Checks if the user wants to move a spesific file
+    {
+        if (input.ToLower() == "y") return true;  else  return false;
+    }
+
 }
