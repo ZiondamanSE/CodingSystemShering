@@ -19,7 +19,7 @@ class Program
 
         if(FileSpesificanonCheck(moveFileSpesific))
         {
-            Debug.WriteLine("What File do you want moved? (Write the executable ext: .txt .exe)");
+            Debug.WriteLine("What File do you want moved? (Write the executable ext: .txt .exe)"); 
         }
         else
         {
@@ -31,7 +31,7 @@ class Program
                 FindFileNameMatches(fileNames, fileToFind, sortedFiles, directoryPath);
 
                 // Print all matching files
-                if (sortedFiles.Count > 0)
+                if (sortedFiles.Count > 0) // If files were found give vishal feedback
                 {
                     Console.WriteLine("\nMatching files found:");
                     foreach (string file in sortedFiles)
