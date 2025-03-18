@@ -1,36 +1,36 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Mike7\\Downloads\\SYS\\CodingSystemShering\\FileSortingSystemVS\\ConsoleApp1\\ConsoleApp1.csproj": {}
+    "C:\\Users\\zion.martincich\\Documents\\'\\CodingSystemShering\\FileSortingSystemVS\\ConsoleApp1\\ConsoleApp1.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Mike7\\Downloads\\SYS\\CodingSystemShering\\FileSortingSystemVS\\ConsoleApp1\\ConsoleApp1.csproj": {
+    "C:\\Users\\zion.martincich\\Documents\\'\\CodingSystemShering\\FileSortingSystemVS\\ConsoleApp1\\ConsoleApp1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Mike7\\Downloads\\SYS\\CodingSystemShering\\FileSortingSystemVS\\ConsoleApp1\\ConsoleApp1.csproj",
+        "projectUniqueName": "C:\\Users\\zion.martincich\\Documents\\'\\CodingSystemShering\\FileSortingSystemVS\\ConsoleApp1\\ConsoleApp1.csproj",
         "projectName": "ConsoleApp1",
-        "projectPath": "C:\\Users\\Mike7\\Downloads\\SYS\\CodingSystemShering\\FileSortingSystemVS\\ConsoleApp1\\ConsoleApp1.csproj",
-        "packagesPath": "C:\\Users\\Mike7\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Mike7\\Downloads\\SYS\\CodingSystemShering\\FileSortingSystemVS\\ConsoleApp1\\obj\\",
+        "projectPath": "C:\\Users\\zion.martincich\\Documents\\'\\CodingSystemShering\\FileSortingSystemVS\\ConsoleApp1\\ConsoleApp1.csproj",
+        "packagesPath": "C:\\Users\\zion.martincich\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\zion.martincich\\Documents\\'\\CodingSystemShering\\FileSortingSystemVS\\ConsoleApp1\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Mike7\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\zion.martincich\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net8.0"
+          "net8.0-windows"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net8.0": {
-            "targetAlias": "net8.0",
+          "net8.0-windows7.0": {
+            "targetAlias": "net8.0-windows",
             "projectReferences": {}
           }
         },
@@ -47,8 +47,8 @@
         "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
-        "net8.0": {
-          "targetAlias": "net8.0",
+        "net8.0-windows7.0": {
+          "targetAlias": "net8.0-windows",
           "imports": [
             "net461",
             "net462",
@@ -63,9 +63,12 @@
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
+            },
+            "Microsoft.WindowsDesktop.App.WindowsForms": {
+              "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.102/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

@@ -4,19 +4,28 @@ using System.IO;
 
 class Program
 {
+    // Class level variables to be accessed by all methods
+    static string specificFolderName;
+    static string specificFile = "*"; // Default to all files unless specified
+    static string fileToFind;
+    static string directoryPath;
+    static string moveFileSpecific;
+    static string renameFolder;
+
     static void Main()
     {
         // Get input from user
         Console.WriteLine("Enter file name to search for:");
-        string fileToFind = Console.ReadLine();
+        fileToFind = Console.ReadLine();
 
         Console.WriteLine("Enter directory path to search in:");
-        string directoryPath = Console.ReadLine();
+        directoryPath = Console.ReadLine();
 
         Console.WriteLine("Do you want a specific file moved? Y/N");
-        string moveFileSpecific = Console.ReadLine();
+        moveFileSpecific = Console.ReadLine();
 
-        string specificFile = "*"; // Default to all files unless specified
+        Console.WriteLine("Do you Wish to have a costom Folder name?");
+        renameFolder = Console.ReadLine();
 
         if (FileSpecificationCheck(moveFileSpecific))
         {
@@ -24,10 +33,20 @@ class Program
             specificFile = Console.ReadLine();
         }
 
+        if (FolderNameSpecificationCheck(renameFolder))
+        {
+            Console.WriteLine("What do you want the folder to be named?");
+            specificFolderName = Console.ReadLine();
+        }
+        else
+        {
+            specificFolderName = fileToFind; // Set default folder name if not specified
+        }
+
         FileFetcher(fileToFind, directoryPath, specificFile);
     }
 
-    static void FileFetcher(string fileToFind, string directoryPath, string specificFile)
+    static void FileFetcher(string fileToFind, string directoryPath, string specificFile)  // Gather files
     {
         List<string> sortedFiles = new List<string>();
 
@@ -77,7 +96,7 @@ class Program
     static void FileManager(List<string> files, string directoryPath, string folderName) // Moves files to a new directory (The files, The places, The name)
     {
         // Create a subdirectory for the matching files
-        string matchingFilesDir = Path.Combine(directoryPath, folderName);
+        string matchingFilesDir = Path.Combine(directoryPath, specificFolderName);
 
         if (!Directory.Exists(matchingFilesDir))
             Directory.CreateDirectory(matchingFilesDir);
@@ -88,7 +107,7 @@ class Program
             string destinationPath = Path.Combine(matchingFilesDir, fileInfo.Name);
 
             if (!File.Exists(destinationPath))
-            { 
+            {
                 fileInfo.MoveTo(destinationPath);
                 Console.WriteLine($"Moved file: {fileInfo.Name}");
             }
@@ -99,9 +118,13 @@ class Program
         }
     }
 
-    static bool FileSpecificationCheck(string input) // cheks if user wants to move a specific file type
+    static bool FileSpecificationCheck(string input) // checks if user wants to move a specific file type
+    {
+        return input.Trim().Equals("y", StringComparison.OrdinalIgnoreCase);
+    }
+
+    static bool FolderNameSpecificationCheck(string input) // checks if user wants to rename the folder
     {
         return input.Trim().Equals("y", StringComparison.OrdinalIgnoreCase);
     }
 }
-    
