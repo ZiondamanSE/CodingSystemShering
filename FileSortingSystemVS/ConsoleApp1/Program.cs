@@ -121,7 +121,7 @@ class Program
     static bool FileSpecificationCheck(string input) // checks if user wants to move a specific file type
     {
         return input.Trim().Equals("y", StringComparison.OrdinalIgnoreCase);
-    }
+    }   
 
     static bool FolderNameSpecificationCheck(string input) // checks if user wants to rename the folder
     {
